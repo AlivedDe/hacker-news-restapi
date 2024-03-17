@@ -36,6 +36,14 @@ public class HackerNewProvider(IHttpClientFactory factory, IOptions<HackerNewsOp
 
     public async Task<IReadOnlyCollection<BestStory>> GetStoriesAsync(IReadOnlyCollection<int> ids, int count = 10)
     {
+        if (count <= 0 || ids.Count == 0)
+        {
+            return Array.Empty<BestStory>();
+        }
+        if (count > ids.Count)
+        {
+            count = ids.Count;
+        }
         var idsByCount = ids.Take(count);
         var stories = idsByCount.Select(async storyId =>
         {
