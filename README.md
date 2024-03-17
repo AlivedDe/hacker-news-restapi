@@ -35,6 +35,9 @@ Also some soties could be marked deleted or dead. Those stories are not returned
   <li>Net8 SDK</li>
 </ul>
 
+## Installation
+<code> helm install hacker-news-redis oci://registry-1.docker.io/alived/hacker-news-redis --version 0.1.0</code>
+
 ## What to improve
 <ul>
     <li>Some code refactoring and re-arranging to improve readbility and maintanability</li>
@@ -42,4 +45,8 @@ Also some soties could be marked deleted or dead. Those stories are not returned
     <li>Better logging</li>
     <li>Better exception handling</li>
     <li>Improving the algorythm of refreshing the cache</li>
+    <li>Add proper life probing, onnsidering Redis avaiability</li>
+    <li>Improve Redis connection (keep alive)</li>
+    <li>Monitoring, app-metrics, alerting</li>
+    <li>SSL certificate and HTTPS in K8s</li>
 </ul>

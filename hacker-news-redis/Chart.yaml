@@ -1,0 +1,6 @@
+apiVersion: v2
+name: hacker-news-redis
+description: This is a little wrapper over https://github.com/HackerNews/API best stories API, which allows to get a provided number of best stories
+type: application
+version: 0.1.0
+appVersion: 1.0.8

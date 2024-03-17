@@ -22,4 +22,4 @@ RUN dotnet publish "./HackerNewsRstAPI.csproj" -c $BUILD_CONFIGURATION -o /app/p
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "HackerNewsRstAPI.dll"]
+ENTRYPOINT ["dotnet", "HackerNewsRstAPI.dll", "--launch-profile prod"]

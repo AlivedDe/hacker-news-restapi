@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "hacker-news-redis.fullname" . }}
+  labels:
+    {{- include "hacker-news-redis.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.httpPort }}
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "hacker-news-redis.selectorLabels" . | nindent 4 }}

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "hacker-news-redis.fullname" . }}-test-connection"
+  labels:
+    {{- include "hacker-news-redis.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "hacker-news-redis.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
